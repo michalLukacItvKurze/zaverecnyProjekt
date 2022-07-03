@@ -1,0 +1,394 @@
+/* pozadie webu */
+body{
+    background-color: black;
+}
+/* hracia plocha*/
+#board{
+    position: relative;
+    width: 900px;
+    height: 600px;
+    margin:40px auto;
+    border: 4px solid white;
+    border-radius: 5px;
+    background: url('img/background.jpg');
+    background-size: 150% 100%;
+    overflow: hidden;
+    display: block;
+}
+#menu,#menuGameOver,#menuWin{
+    position: relative;
+    width: 900px;
+    height: 600px;
+    margin:40px auto;
+    border: 4px solid white;
+    border-radius: 5px;
+    background: url('img/backgroundMenu.jpg');
+    background-size: contain;
+    text-align: center;
+    color: white;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display:block;
+    overflow: hidden;
+}
+#menuGameOver{
+    background: url('img/gameover.jpg');
+    background-size: contain;
+    display: none;
+}
+#menuWin{
+    background: url('img/win.jpg');
+    display: none;
+    
+}
+
+
+
+#menu h1,#menuWin h1 {
+    font-size: 80px;
+    margin-top: 130px;
+}
+#menuGameOver h1{
+    font-size: 80px;
+    margin-top: 270px;
+    
+}
+#menuWin h1 {
+    font-size: 80px;
+    position: absolute;
+    top: 50px;
+    left: 220px;
+    letter-spacing: 15px;
+    z-index: 11;
+    
+
+}
+#menu h3,#menuGameOver h3, #menuGameOver #score, #scoreGameover  {
+    font-size: 30px;
+    margin-top: -50px;
+
+}
+#scoreGameover{
+    margin-top: -35px;
+}
+#menuGameOver h3 {
+    font-size: 40px;
+    margin-top: -40px;
+
+}
+
+#menu #playButtonS, #menuGameOver #playButton,#menuWin #playButtonW{
+    width: 200px;
+    height: 50px;
+    background: rgb(2,177,2);
+    background: -moz-linear-gradient(90deg, rgba(2,177,2,1) 50%, rgba(184,209,0,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(2,177,2,1) 50%, rgba(184,209,0,1) 100%);
+    background: linear-gradient(90deg, rgba(2,177,2,1) 50%, rgba(184,209,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#02b102",endColorstr="#b8d100",GradientType=1);
+    border-radius: 15px;
+    position: absolute;
+    bottom: 90px;
+    left: 350px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+#menuGameOver #playButton{
+    bottom: 50px;
+    border: 4px solid white;
+}
+#menu #playButtonS{
+    bottom: 85px;
+    border: 4px solid white;
+  
+}
+#menuWin #playButtonW{
+    bottom: 200px;
+    border: 4px solid white;
+}
+#menu #playButtonS div{
+    font-size: 16px;
+    margin-top: 15px;
+    letter-spacing: 2px;
+    font-weight: 900;
+    
+}
+#menu #playButtonS:hover, #menuGameOver #playButton:hover,#menuWin #playButtonW:hover{
+    background: rgb(2,177,2);
+    background: -moz-linear-gradient(90deg, rgba(2,177,2,1) 9%, rgba(184,209,0,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(2,177,2,1) 9%, rgba(184,209,0,1) 100%);
+    background: linear-gradient(90deg, rgba(2,177,2,1) 9%, rgba(184,209,0,1) 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#02b102",endColorstr="#b8d100",GradientType=1);
+    -webkit-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#02b102",endColorstr="#b8d100",GradientType=1);
+}
+#menuGameOver #playButton p,#menuWin #playButtonW p{
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+/* pocet strelenych */
+#count{
+    position: absolute; 
+    color: white;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    letter-spacing: 2px;
+    padding-top: 30px;
+    left: 580px;
+}
+/* zivoty */
+#life {
+    width: 240px;
+    height: 30px;
+    background-color: rgb(255, 255, 255);
+    border: 4px solid white;
+    border-radius: 5px;
+    position: absolute;
+    top: 30px;
+    left: 70px;
+    align-items: center;
+}
+#life1{
+    width: 57px;
+    height: 30px;
+    background: rgb(106, 236, 13);
+    display: inline-flex;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+}
+/* panacik */
+#posAndGun{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 0;
+    bottom: -6px;
+    z-index: 100;
+    
+}
+#posRight {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: url('img/among.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+    
+}
+#posRunRight {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: url('img/amongRun.gif');
+    background-size:contain;
+    background-repeat:no-repeat;
+}
+#posLeft {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: url('img/among.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+    transform: scaleX(-1);
+}
+#posRunLeft {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: url('img/amongRun.gif');
+    background-size:contain;
+    background-repeat:no-repeat;
+    transform: scaleX(-1);
+}
+
+/* planety */
+.planets{
+    position: absolute;
+    top: 120px;
+    left: 635px;
+    width: 150px;
+    height: 150px;
+    background: url('img/greenPlanet.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.planets2{
+    position: absolute;
+    top: 90px;
+    left: -20px;
+    width: 450px;
+    height: 450px;
+    background: url('img/ringPlanet.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 3;
+}
+.stars1{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 600px;
+    height: 500px;
+    background: url('img/stars.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    opacity: 0.4;
+}
+.stars2{
+    position: absolute;
+    top: 0px;
+    left: 400px;
+    width: 600px;
+    height: 500px;
+    background: url('img/stars.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    opacity: 0.3;
+}
+/*zbran*/
+#gunLeft{
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    background: url('img/gun.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+    transform: scaleX(-1);
+    left: 10px;
+    bottom: 40px;
+}
+#gunRight{
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    background: url('img/gun.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+    left: 50px;
+    bottom: 40px;
+
+}
+/* plamen batoh */
+#rocketBag{
+    position: absolute;
+    display: none;
+    left: 40px;
+    bottom: 155px;
+}
+#flame{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url('img/flame.gif');
+    background-size:contain;
+    background-repeat:no-repeat;
+    left: -10px;
+    bottom: -80px;
+}
+#rocketBagCyan{
+    position: absolute;
+    width: 15px;
+    height: 40px;
+    background: rgb(0, 151, 189);
+    border: 3px solid black;
+    border-radius: 5px;
+    background-size:contain;
+    background-repeat:no-repeat;
+    /*left: 40px;
+    bottom: 108px;*/
+}
+
+/* Nepriatelia*/
+#enemy1{
+    background: url('img/enemy1.gif');
+    background-size:contain;
+    background-repeat:no-repeat;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 400px;
+    bottom: 40px;
+    z-index: 3;
+}
+#enemy2,#enemy4{
+    background: url('img/enemy2.gif');
+    background-size:contain;
+    background-repeat:no-repeat;
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    left: 550px;
+    bottom: 60px;
+    z-index: 2;
+}
+#enemy3,#enemy5{
+    background: url('img/enemy3.gif');
+    background-size:contain;
+    background-repeat:no-repeat;
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    left: 750px;
+    bottom: 10px;
+    z-index: 3;
+}
+
+/* strely */
+#shot1,#shot2,#shot3,#shot4,#shot5{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    bottom: 50px;
+    animation: rotation 2s infinite linear;
+   
+}
+#shot1{
+    background: url('img/shot1.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+}
+#shot2{
+    background: url('img/shot2.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+}
+#shot3{
+    background: url('img/shot3.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+}
+#shot4{
+    background: url('img/shot4.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+}
+#shot5{
+    background: url('img/shot5.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(359deg);
+}
+    to {
+        transform: rotate(0deg);
+}
+}
+
+.bullet{
+    position: absolute;
+    background: url('img/bullet.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+    width: 40px;
+    height: 40px;
+    bottom: 90px;
+    left: 150px;
+
+}
+
